@@ -34,17 +34,12 @@ def CheckKey(c, delayTime, protocole, targetTime):
 
 def GetTargets():
     c = twint.Config()
-    startTime = input("Date to start searching (format: %Y-%m-%\n>")
-    try: datetime.datetime.strptime(startTime, '%Y-%m-%d')
-    except ValueError:
-        print("That's not a date, try again (format: %Y-%m-)")
-        GetTargets()
-    c.Since = startTime
+    c.Since = datetime.datetime.today().strftime('%Y-%m-%d')
     c.Search = "Testing tweet"
     c.Username = "KarimKohel"
-    delayTime = 120
+    delayTime = 10 #300
     protocol = 1
-    targetTime = (time.time() + (int(input("How many Hours to run before firing?\n>"))*60*60))
+    targetTime = (time.time() + (int(input("How many minuts to run before firing?\n>"))*60))
     c.Hide_output = True
     c.Store_object = True
     CheckKey(c, delayTime, protocol, targetTime)
