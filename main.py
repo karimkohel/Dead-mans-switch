@@ -1,10 +1,9 @@
 import twint, time, datetime, pyAesCrypt
 
-def pay1():
-    pass
-
 def FirePayload(protocole):
     print("ACTIVATED PAYLOAD!!!!!")
+
+    # still no idea on what to do on firing, so ima leave it for now
 
     # if protocole == 1:
     #     pass
@@ -35,11 +34,11 @@ def CheckKey(c, delayTime, protocole, targetTime):
 def GetTargets():
     c = twint.Config()
     c.Since = datetime.datetime.today().strftime('%Y-%m-%d')
-    c.Search = "Testing tweet"
+    c.Search = "Last night a DJ saved my life"
     c.Username = "KarimKohel"
-    delayTime = 10 #300
-    protocol = 1
-    targetTime = (time.time() + (int(input("How many minuts to run before firing?\n>"))*60))
+    delayTime = 300 # 5 minuts
+    protocol = int(input("Protocol number: "))
+    targetTime = (time.time() + (int(input("Hours till Doomsday: "))*60*60)) # in hours
     c.Hide_output = True
     c.Store_object = True
     CheckKey(c, delayTime, protocol, targetTime)
