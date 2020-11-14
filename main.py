@@ -42,9 +42,9 @@ def GetTargets():
     c.Since = startTime
     c.Search = "Testing tweet"
     c.Username = "KarimKohel"
-    delayTime = 10
+    delayTime = 120
     protocol = 1
-    targetTime = (time.time() + (int(input("How many minutes to run before firing?\n>"))*60))
+    targetTime = (time.time() + (int(input("How many Hours to run before firing?\n>"))*60*60))
     c.Hide_output = True
     c.Store_object = True
     CheckKey(c, delayTime, protocol, targetTime)
